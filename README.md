@@ -36,12 +36,14 @@ as `O(n)`, which is also known as **linear time**.
 
 If you were to chart this on a graph, where the x-axis represents the number of
 elements and the y-axis represents the units of work that your computer has to
-do, they would follow the green line on the graph below:
+do, our `findSock` algorithm's time complexity would follow the green line on
+the graph below:
 
 ![Big O Times Graph](https://curriculum-content.s3.amazonaws.com/phase-1/phase-1-algorithms-big-o/big-o-graph.png)
 
 These are four common Big O formulas you'll see (there are others out there, but
-these cover many common scenarios). Here are some examples:
+these cover many common scenarios). Here are some examples with regards to time
+complexity:
 
 | Big O    | Name        | Example                                     |
 | -------- | ----------- | ------------------------------------------- |
@@ -51,18 +53,19 @@ these cover many common scenarios). Here are some examples:
 | O(n²)    | Quadratic   | Nested iteration                            |
 
 On this graph, the steeper the line is, the worse the algorithm's performance
-is. We've already seen a couple examples of linear time, so let's take a look at
-some examples of algorithms that have logarithmic, constant, and quadratic
-runtimes.
+is. We've already seen a couple examples of linear runtimes (our `findSock` and
+`average` algorithms both have `O(n)` runtime) so let's take a look at some
+examples of algorithms that have logarithmic, constant, and quadratic runtimes.
 
 ### Logarithmic: `O(log n)`
 
 Let's revisit our sock finding example and see if we can devise a faster
 algorithm for finding the sock in our laundry. In our first example, the sock
 was in an unsorted pile of laundry, so our only hope of finding it was to go
-through each item in the laundry pile piece by piece! What if instead our
-laundry laid out on the floor in alphabetical order? Well, having our laundry
-sorted would give us a better way to approach this problem!
+through each item in the laundry pile piece by piece.
+
+What if our laundry were laid out on the floor in alphabetical order? Well,
+having our laundry sorted would give us a better way to approach this problem!
 
 Consider a representation of our laundry as a sorted array:
 
@@ -83,6 +86,12 @@ otherwise, if the item is after our sock in the alphabet
 otherwise, if that item is our sock
   put the sock on
 ```
+
+This strategy is like opening a dictionary (or a
+[phone book](https://www.youtube.com/watch?v=DSffdCT5Cx4)) to try and find a
+particular word. If you open to a page that's after the word in the alphabet,
+you know your word is earlier in the dictionary, so you can quickly narrow down
+your search.
 
 Here's a visualization of those steps:
 
@@ -118,9 +127,9 @@ most 3 iterations to look through an array of 7 items:
 ```
 
 This approach benefits us more and more the larger our input size gets, since we
-can cut the area we're searching approximately **in half** on each iteration.
-What if we had 1000 items to look through? With a linear search, we'd need 1000
-steps; with this new approach, we'd need just 10:
+can **cut the area we're searching approximately in half** on each iteration.
+What if we had 1000 items to look through? With a linear search, the worst case
+is that we'd need 1000 steps; with this new approach, we'd need just 10:
 
 ```txt
 500    n / 2
