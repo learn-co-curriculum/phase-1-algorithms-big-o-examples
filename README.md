@@ -41,9 +41,7 @@ the graph below:
 
 ![Big O Times Graph](https://curriculum-content.s3.amazonaws.com/phase-1/phase-1-algorithms-big-o/big-o-graph.png)
 
-These are four common Big O formulas you'll see (there are others out there, but
-these cover many common scenarios). Here are some examples with regards to time
-complexity:
+These are four of the most common Big O formulas, along with examples:
 
 | Big O    | Name        | Example                                     |
 | -------- | ----------- | ------------------------------------------- |
@@ -195,8 +193,8 @@ list, we can be more efficient and achieve `O(log n)` runtime.
 Let's take this idea of storing our laundry to another extreme. What if instead
 of having our laundry in an unsorted pile, or laid out in alphabetical order, we
 had an elaborate dresser, where each item of clothing had its own labeled
-drawer? Well, then finding our sock be very easy! Or algorithm would look like
-this:
+drawer? Well, then finding our sock would be very easy! Our algorithm would look
+like this:
 
 ```txt
 open the sock drawer in the dresser
@@ -311,8 +309,8 @@ runtime.
 We've covered a lot of material in the last couple lessons, so let's recap once
 more:
 
-- **Big O notation** is used to classify algorithms according to how their run
-  time or space requirements grow as the input size grows.
+- **Big O notation** is used to classify algorithms according to how their
+  runtime or space requirements grow as the input size grows.
 - To calculate the time complexity of an algorithm using Big O notation, count
   the number of steps the computer will take to run our code and then remove any
   constants (so `O(2n + 1)` becomes just `O(n)`).
