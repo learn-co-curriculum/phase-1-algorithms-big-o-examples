@@ -397,6 +397,8 @@ more:
   - Logarithmic time: `O(log n)` (binary search)
   - Linear time: `O(n)` (looping through an array)
   - Quadratic time: `O(n²)` (nested loops)
+- You should be aware of the runtime cost associated with common methods on
+  objects and arrays, such as access, insertion, and deletion.
 
 Make sure to take a break before continuing onward - there's a lot of
 information to digest here! In the next few lessons, we'll practice writing more
