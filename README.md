@@ -3,6 +3,7 @@
 ## Learning Goals
 
 - Identify common Big O runtimes: constant, linear, quadratic and logarithmic
+- Research the Big O runtime of built-in methods
 
 ## Introduction
 
@@ -206,10 +207,10 @@ Think about it for a moment: what kind of data structure have you encountered in
 JavaScript that serves a similar purpose, and allows us to access data just by
 knowing how that data is labeled?
 
-That's right: an **object**!
-
-If our laundry data is stored in an **object** instead of an array, here's what
-our algorithm could look like:
+That's right: an **object**! Looking up a key on an object is a very fast
+operation — we can consider it a constant time, or O(1), operation. So if our
+laundry data is stored in an **object** instead of an array, here's what our
+algorithm could look like:
 
 ```js
 function findSock(laundry) {
@@ -303,6 +304,80 @@ In Big O notation, we can express this as `O(n²)`, which is also known as
 **quadratic time**. In some cases, this is the best runtime you can hope for,
 but in general it's best to try optimize solutions where you have an `O(n²)`
 runtime.
+
+## Big O of Built-In Methods
+
+One major factor to consider when determining the runtime complexity of an
+algorithm is **how well a language's built-in methods perform**. For example, we
+stated earlier that "looking up a key on an object is a O(1) operation" in our
+discussion of constant time. But why is that the case?
+
+When we make assertions like this, we're summarizing some of the lower-level
+work that JavaScript is doing under the hood when it comes to certain common
+operations, like looking up a key on an object. In reality, it's more
+complicated: if you're curious for a deeper dive, check out our
+[Underneath Hashes lesson][hashes] to learn more (you'll also see this lesson
+later on in the Canvas Data Structures and Algorithms course, so you can also
+skip this reading for now if you'd like).
+
+[hashes]: https://github.com/learn-co-curriculum/hash-table
+
+Here is a general summary of common runtimes for operations involving objects:
+
+| Method                                           | Big O |
+| ------------------------------------------------ | ----- |
+| Access (looking for a value with a known key)    | O(1)  |
+| Search (looking for a value without a known key) | O(n)  |
+| Insertion (adding a value at a known key)        | O(1)  |
+| Deletion (removing a value at a known key)       | O(1)  |
+
+Arrays are another common data structure that you're quite familiar with at this
+point. Just like with objects, arrays have certain runtime costs for common
+operations, which we can summarize as follows:
+
+| Method                              | Big O |
+| ----------------------------------- | ----- |
+| Access                              | O(1)  |
+| Search                              | O(n)  |
+| Insertion: End (`.push()`)          | O(1)  |
+| Insertion: Beginning (`.unshift()`) | O(n)  |
+| Deletion: End (`.pop()`)            | O(1)  |
+| Deletion: Beginning (`.shift()`)    | O(n)  |
+
+For a more in-depth look at how we derived these runtimes, check out our
+[Underneath Arrays lesson][arrays] to learn more (you'll also see this lesson
+later on in the Canvas Data Structures and Algorithms course).
+
+[arrays]: https://github.com/learn-co-curriculum/arrays-underneath
+
+Further complicating matters for us is that the actual under-the-hood
+implementation of each of these methods depends on **what JavaScript engine**
+(Chrome V8, FireFox's SpiderMonkey, etc) our algorithm is running on. JavaScript
+itself is based on the [ECMAScript][ecma] specification, and each engine can
+interpret the spec in different ways, so to _really_ be sure what a method is
+doing under the hood, you'd have to do quite a lot of digging!
+
+[ecma]: https://en.wikipedia.org/wiki/ECMAScript
+
+> **Note**: For the brave and the curious, one helpful resource when it comes to
+> investigating JavaScript's built-in methods is the ECMAScript specification
+> itself, which describes a general set of steps that every single JavaScript
+> method should adhere to, regardless of what engine the method is implemented
+> in.
+>
+> For example, check out the specs for [`.push()`][ecma push] and
+> [`.unshift()`][ecma unshift]. Which of these methods looks like it involves
+> more steps? Why might adding an element to the beginning of an array have a
+> worse runtime than adding to the end?
+>
+> If you're ever curious how a JavaScript method works under the hood, the spec
+> is a good resource (fair warning: it's certainly not light reading).
+> Helpfully, the MDN docs include links to the ECMAScript spec
+> [at the bottom of each page][mdn ecma].
+
+[ecma push]: https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.push
+[ecma unshift]: https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.unshift
+[mdn ecma]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#specifications
 
 ## Conclusion
 
