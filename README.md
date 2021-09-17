@@ -335,14 +335,15 @@ Arrays are another common data structure that you're quite familiar with at this
 point. Just like with objects, arrays have certain runtime costs for common
 operations, which we can summarize as follows:
 
-| Method                              | Big O |
-| ----------------------------------- | ----- |
-| Access                              | O(1)  |
-| Search                              | O(n)  |
-| Insertion: End (`.push()`)          | O(1)  |
-| Insertion: Beginning (`.unshift()`) | O(n)  |
-| Deletion: End (`.pop()`)            | O(1)  |
-| Deletion: Beginning (`.shift()`)    | O(n)  |
+| Method                                    | Big O |
+| ----------------------------------------- | ----- |
+| Access                                    | O(1)  |
+| Search (`.indexOf()`)                     | O(n)  |
+| Insertion: End (`.push()`)                | O(1)  |
+| Insertion: Beginning (`.unshift()`)       | O(n)  |
+| Deletion: End (`.pop()`)                  | O(1)  |
+| Deletion: Beginning (`.shift()`)          | O(n)  |
+| Creation from existing array (`.slice()`) | O(n)  |
 
 For a more in-depth look at how we derived these runtimes, check out our
 [Underneath Arrays lesson][arrays] to learn more (you'll also see this lesson
