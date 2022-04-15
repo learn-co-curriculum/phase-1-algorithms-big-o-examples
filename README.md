@@ -78,9 +78,9 @@ algorithm by starting in the middle instead:
 
 ```txt
 check the item in the middle of the pile
-if the item is before our sock in the alphabet
+if the item is after our sock in the alphabet
   check the first half of the pile
-otherwise, if the item is after our sock in the alphabet
+otherwise, if the item is before our sock in the alphabet
   check the second half of the pile
 otherwise, if that item is our sock
   put the sock on
