@@ -315,14 +315,8 @@ discussion of constant time. But why is that the case?
 When we make assertions like this, we're summarizing some of the lower-level
 work that JavaScript is doing under the hood when it comes to certain common
 operations, like looking up a key on an object. In reality, it's more
-complicated: if you're curious for a deeper dive, check out our
-[Underneath Hashes lesson][hashes] to learn more (you'll also see this lesson
-later on in the Canvas Data Structures and Algorithms course, so you can also
-skip this reading for now if you'd like).
-
-[hashes]: https://github.com/learn-co-curriculum/hash-table
-
-Here is a general summary of common runtimes for operations involving objects:
+complicated. Here is a general summary of common runtimes for operations
+involving objects:
 
 | Method                                           | Big O |
 | ------------------------------------------------ | ----- |
